@@ -148,7 +148,7 @@ body {
 }
 
 .hero .content .cta:hover {
-  color: #7907a7;
+  background-color: #7907a7;
   transform: translateY(-2px);
 }
 
