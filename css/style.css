@@ -237,11 +237,6 @@ body {
   margin-top: 1rem auto 0.5rem;
 }
 
-.music {
-  display: flex;
-  object-fit: cover;
-}
-
 /* contact */
 .contact .row {
   display: flex;
