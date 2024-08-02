@@ -13,7 +13,13 @@ const khodamList = [
   "Botol Bekas",
   "Kuntilanak",
   "Genderuwo",
-  "Tidak Ada",
+  "Seledri",
+  "Iblis",
+  "Roxy",
+  "Dalgona",
+  "Kayu Manis",
+  "Freeload",
+  "Tidak Ada"
 ];
 
 // fungsi untuk memilih khodam secara acak
