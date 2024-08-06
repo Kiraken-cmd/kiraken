@@ -132,6 +132,38 @@ document.addEventListener("DOMContentLoaded", () => {
     .addEventListener("change", filterNovels);
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  // Tambahkan event listener untuk link navigasi
+  const navLinks = document.querySelectorAll('nav a');
+  
+  navLinks.forEach(link => {
+    link.addEventListener('click', (event) => {
+      event.preventDefault(); // Mencegah navigasi default
+
+      const targetId = link.getAttribute('href').substring(1); // Ambil ID target tanpa #
+      const targetSection = document.getElementById(targetId);
+      
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+        history.pushState(null, '', `#${targetId}`); // Ubah URL di address bar
+      } else {
+        console.error(`Section dengan ID ${targetId} tidak ditemukan.`);
+      }
+    });
+  });
+
+  // Menangani navigasi back/forward browser
+  window.addEventListener('popstate', () => {
+    const hash = window.location.hash.substring(1); // Ambil ID dari URL
+    const targetSection = document.getElementById(hash);
+
+    if (targetSection) {
+      targetSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+
+
 document.getElementById("search-title").addEventListener("input", filterNovels);
 document
   .getElementById("search-genre")
