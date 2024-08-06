@@ -84,6 +84,22 @@ function filterNovels() {
   });
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+  const scrollUpButton = document.getElementById("scroll-up");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 200) {
+      scrollUpButton.style.display = "flex";
+    } else {
+      scrollUpButton.style.display = "none";
+    }
+  });
+
+  scrollUpButton.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+});
+
 document.getElementById("search-title").addEventListener("input", filterNovels);
 document
   .getElementById("search-genre")
