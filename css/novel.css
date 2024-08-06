@@ -290,6 +290,10 @@ footer {
     align-items: center;
   }
 
+  .toggle-navbar {
+    font-size: 1rem;
+  }
+
   .novel-item {
     width: calc(100% - 2rem);
     flex-direction: column;
