@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KiraKen Novel</title>
+    <link rel="stylesheet" href="css/novel.css" />
+    <link rel="icon" href="img/kiranovel.jpg" type="image/x-icon" />
+
+    <!-- Fontawesome -->
+    <script
+      src="https://kit.fontawesome.com/86258823cf.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <h1>KiraKen Novel</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#new">Novel Terbaru</a></li>
+        <li><a href="#novel-list">Daftar Novel</a></li>
+        <li><a href="#about">Tentang Kami</a></li>
+      </ul>
+    </nav>
+    <main>
+      <section id="home" class="hero">
+        <h2>Selamat Datang di KiraKen Novel</h2>
+        <p>Temukan dan baca novel favoritmu di sini</p>
+        <button onclick="scrollToSection('new')">Mulai Membaca</button>
+      </section>
+      <h2 id="new">Novel Terbaru</h2>
+      <section id="latest" class="novel-list">
+        <article class="novel-item">
+          <img src="img/comingsoon.jfif" alt="Judul Novel 1" />
+          <div class="novel-content">
+            <h3>Coming Soon</h3>
+            <p>Deskripsi singkat tentang novel ini...</p>
+            <p class="genre">Genre: Romance, Fantasy</p>
+          </div>
+        </article>
+        <article class="novel-item">
+          <img src="img/comingsoon.jfif" alt="Judul Novel 2" />
+          <div class="novel-content">
+            <h3>Coming Soon</h3>
+            <p>Deskripsi singkat tentang novel ini...</p>
+            <p class="genre">Genre: Fantasy</p>
+          </div>
+        </article>
+        <article class="novel-item">
+          <img src="img/comingsoon.jfif" alt="Judul Novel 2" />
+          <div class="novel-content">
+            <h3>Coming Soon</h3>
+            <p>Deskripsi singkat tentang novel ini...</p>
+            <p class="genre">Genre: Fantasy</p>
+          </div>
+        </article>
+        <article class="novel-item">
+          <img src="img/comingsoon.jfif" alt="Judul Novel 2" />
+          <div class="novel-content">
+            <h3>Coming Soon</h3>
+            <p>Deskripsi singkat tentang novel ini...</p>
+            <p class="genre">Genre: Action</p>
+          </div>
+        </article>
+        <article class="novel-item">
+          <img src="img/comingsoon.jfif" alt="Judul Novel 2" />
+          <div class="novel-content">
+            <h3>Coming Soon</h3>
+            <p>Deskripsi singkat tentang novel ini...</p>
+            <p class="genre">Genre: Sci-Fi</p>
+          </div>
+        </article>
+        <article class="novel-item">
+          <img src="img/comingsoon.jfif" alt="Judul Novel 2" />
+          <div class="novel-content">
+            <h3>Coming Soon</h3>
+            <p>Deskripsi singkat tentang novel ini...</p>
+            <p class="genre">Genre: Sci-Fi</p>
+          </div>
+        </article>
+        <!-- Tambahkan novel terbaru lainnya sesuai kebutuhan -->
+      </section>
+      <section id="novel-list" class="novel-list-section">
+        <h2>Daftar Novel</h2>
+        <div class="search-bar">
+          <input
+            type="text"
+            id="search-title"
+            placeholder="Cari berdasarkan judul..."
+          />
+          <select id="search-genre">
+            <option value="">Semua Genre</option>
+            <option value="Romance">Romance</option>
+            <option value="Fantasy">Fantasy</option>
+            <option value="Action">Action</option>
+            <option value="Sci-Fi">Sci-Fi</option>
+            <!-- Tambahkan genre lainnya sesuai kebutuhan -->
+          </select>
+          <button onclick="filterNovels()">Cari</button>
+        </div>
+        <div class="novel-list" id="novel-items">
+          <!-- Daftar novel akan diisi di sini oleh JavaScript -->
+        </div>
+      </section>
+      <section id="about" class="about">
+        <h2>Tentang Kami</h2>
+        <p>
+          Selamat datang di <strong>KiraKen Novel</strong>, platform inovatif
+          yang dirancang khusus untuk para penggemar novel di seluruh dunia.
+          Kami adalah tim yang berdedikasi untuk menyediakan pengalaman membaca
+          novel yang memuaskan, menyenangkan, dan mudah diakses.
+        </p>
+        <br />
+        <p>
+          <strong>Apa yang Kami Tawarkan</strong><br />
+          Di <strong>KiraKen Novel</strong>, kami menawarkan berbagai macam
+          novel dari berbagai genre, mulai dari Romance yang menyentuh hati,
+          Fantasy yang membawa Anda ke dunia ajaib, hingga Action dan Sci-Fi
+          yang penuh dengan petualangan dan imajinasi dan berbagai genre
+          lainnya. Kami akan berusaha untuk memastikan koleksi kami selalu
+          diperbarui dengan novel-novel terbaru dan terbaik.
+        </p>
+        <br />
+        <p>
+          <strong>Misi Kami</strong><br />
+          Misi kami adalah menjadi sumber utama bagi para pembaca untuk
+          menemukan dan menikmati novel favorit mereka. Kami percaya bahwa
+          setiap novel memiliki kekuatan untuk menginspirasi, menghibur, dan
+          memberikan perspektif baru. Dengan antarmuka yang ramah pengguna dan
+          fitur pencarian yang canggih, kami berkomitmen untuk memberikan
+          pengalaman membaca yang mudah dan menyenangkan.
+        </p>
+        <br />
+        <p>
+          <strong>Komunitas Pembaca</strong><br />
+          Kami juga berupaya untuk membangun komunitas pembaca yang aktif dan
+          terlibat. Melalui fitur ulasan dan rating, Anda dapat berbagi pendapat
+          dan rekomendasi dengan sesama pembaca. Kami juga menyediakan ruang
+          untuk diskusi dan interaksi tentang novel favorit Anda.
+        </p>
+        <br />
+        <p>
+          <strong>Hubungi Kami</strong><br />
+          Jika Anda memiliki pertanyaan, saran, atau ingin memberikan umpan
+          balik, jangan ragu untuk menghubungi kami melalui halaman kontak. Kami
+          sangat menghargai masukan Anda dan selalu berusaha untuk meningkatkan
+          layanan kami.
+        </p>
+        <br />
+        <p>
+          Terima kasih telah mengunjungi <strong>KiraKen Novel</strong>. Selamat
+          membaca dan semoga Anda menemukan banyak novel menarik dan
+          menginspirasi!
+        </p>
+        <br />
+      </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-logo">
+          <h2>KiraKen Novel</h2>
+        </div>
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#new">Novel Terbaru</a>
+          <a href="#novel-list">Daftar Novel</a>
+          <a href="#about">Tentang Kami</a>
+        </div>
+        <div class="footer-logo">
+          <h2>Ikuti Social Media Kami</h2>
+        </div>
+        <div class="footer-social">
+          <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-icon"
+            ><i class="fa-brands fa-tiktok"></i
+          ></a>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2024 <a href="index.html">KiraKen</a> Novel. Semua hak cipta
+            dilindungi.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Javascript -->
+    <script src="js/novel.js"></script>
+  </body>
+</html>
