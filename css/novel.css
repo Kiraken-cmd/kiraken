@@ -7,11 +7,24 @@
   --light-blue: #add8e6; /* Warna biru muda */
 }
 
+/* Selektor universal, berlaku untuk semua elemen di halaman */
 * {
+  /* Mengatur margin semua elemen menjadi 0, menghilangkan jarak default antara elemen */
   margin: 0;
+  
+  /* Mengatur padding semua elemen menjadi 0, menghilangkan ruang dalam default di dalam elemen */
   padding: 0;
+  
+  /* Mengubah model kotak CSS default */
   box-sizing: border-box;
+  /*
+    box-sizing: border-box membuat padding dan border termasuk dalam ukuran total elemen.
+    Ini membuat pengaturan ukuran elemen lebih mudah dan konsisten.
+    Sebagai contoh, jika kita memiliki elemen dengan lebar 200px dan padding 10px,
+    maka lebar total elemen tetap 200px, tidak bertambah menjadi 220px.
+  */
 }
+
 
 html {
   scroll-behavior: smooth;
@@ -21,21 +34,75 @@ body {
   font-family: "Poppins", sans-serif;
   background-color: var(--background-color);
   color: var(--text-color);
+  /* Mengatur tinggi garis untuk teks dalam elemen body */
   line-height: 1.6;
+  /*
+    line-height: 1.6;
+    Mengatur tinggi garis atau jarak antar baris teks.
+    Nilai 1.6 berarti tinggi garis adalah 1.6 kali ukuran font.
+    Ini memberikan ruang yang cukup untuk membaca teks dengan nyaman.
+  */
 }
+
 
 nav {
   background-color: var(--primary-color);
+  /* Mengatur padding elemen nav */
   padding: 1rem;
+  /*
+    padding: 1rem;
+    Memberikan ruang di dalam elemen nav sebesar 1rem (16px) pada semua sisi.
+    Padding membuat konten di dalam nav tidak menempel langsung pada tepi elemen.
+  */
+
+  /* Menambahkan efek bayangan pada elemen nav */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /*
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    Menambahkan bayangan di sekitar elemen nav untuk memberikan efek elevasi.
+    Nilai-nilai ini berarti:
+      - Offset horizontal (bayangan) sebesar 0px.
+      - Offset vertikal (bayangan) sebesar 2px.
+      - Radius blur bayangan sebesar 4px.
+      - Warna bayangan adalah hitam dengan transparansi 10% (rgba(0, 0, 0, 0.1)).
+  */
 }
 
+
 nav ul {
+  /* Menghilangkan bullet points pada list */
   list-style: none;
+  /*
+    list-style: none;
+    Menghilangkan tanda bullet (titik) atau angka pada elemen list <ul> (unordered list).
+    Ini membuat list menjadi bersih tanpa tanda bullet default.
+  */
+
+  /* Mengatur tampilan elemen list secara fleksibel */
   display: flex;
+  /*
+    display: flex;
+    Mengubah tampilan elemen <ul> menjadi elemen flex container.
+    Dengan demikian, item di dalam <ul> (elemen <li>) akan diatur secara fleksibel dalam satu baris.
+  */
+
+  /* Mengatur distribusi ruang antar elemen list */
   justify-content: space-around;
+  /*
+    justify-content: space-around;
+    Mengatur distribusi ruang antar elemen anak <li> dalam flex container.
+    Elemen <li> akan diberi ruang yang sama di sekitar mereka (sebelum, di antara, dan setelah).
+  */
+
+  /* Mengatur elemen list agar dapat membungkus ke baris berikutnya jika diperlukan */
   flex-wrap: wrap;
+  /*
+    flex-wrap: wrap;
+    Mengatur elemen <li> agar dapat membungkus ke baris berikutnya jika tidak ada cukup ruang dalam satu baris.
+    Ini memungkinkan elemen <li> untuk tetap terlihat rapi dan tidak keluar dari container <ul>.
+  */
 }
+
 
 nav ul li {
   margin: 0.5rem 0;
@@ -115,7 +182,14 @@ h2 {
   padding: 0.5rem 1rem;
   margin-top: 1rem;
   cursor: pointer;
+  /* Mengatur transisi perubahan warna latar belakang */
   transition: background-color 0.3s;
+  /*
+    transition: background-color 0.3s;
+    Mengatur efek transisi pada properti background-color.
+    Ketika warna latar belakang elemen berubah, transisi akan berlangsung selama 0.3 detik.
+    Ini memberikan efek halus saat warna latar belakang elemen berubah, misalnya ketika di-hover atau di-klik.
+  */
 }
 
 .hero button:hover {
@@ -260,7 +334,7 @@ footer {
   font-weight: bold;
 }
 
-/* Scroll-Up Button Styles */
+/* Gaya Tombol Gulir ke Atas */
 .scroll-up {
   position: fixed;
   bottom: 20px;
@@ -275,13 +349,13 @@ footer {
   justify-content: center;
   cursor: pointer;
   transition: background-color 0.3s;
-  padding: 0; /* Remove padding to fit GIF */
+  padding: 0; /* Hapus padding agar sesuai dengan GIF */
 }
 
 .scroll-up img {
   width: 100%;
   height: 100%;
-  border-radius: 50%; /* Ensure the GIF fits within the circular button */
+  border-radius: 50%; /* Pastikan GIF pas dengan tombol melingkar */
 }
 
 @media (max-width: 768px) {
@@ -335,6 +409,12 @@ footer {
 
   .footer-links a {
     margin: 0.5rem 0;
+  }
+
+  .footer-social {
+    flex-direction: row; /* Ubah arah menjadi baris */
+    justify-content: center; /* Ratakan ikon di tengah */
+    flex-wrap: wrap; /* Bungkus ikon jika meluap */
   }
 
   .footer-social .social-icon {
