@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const scrollUpButton = document.getElementById("scroll-up");
 
   window.addEventListener("scroll", () => {
-    if (window.scrollY > 400) {
+    if (window.scrollY > 200) {
       scrollUpButton.style.display = "flex";
     } else {
       scrollUpButton.style.display = "none";
@@ -98,6 +98,38 @@ document.addEventListener("DOMContentLoaded", () => {
   scrollUpButton.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("Web Baca Novel siap digunakan");
+  populateNovelList();
+
+  const scrollUpButton = document.getElementById("scroll-up");
+  const toggleNavbarButton = document.getElementById("toggle-navbar");
+  const navbar = document.getElementById("navbar");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 200) {
+      scrollUpButton.style.display = "flex";
+    } else {
+      scrollUpButton.style.display = "none";
+    }
+  });
+
+  scrollUpButton.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  toggleNavbarButton.addEventListener("click", () => {
+    navbar.classList.toggle("show");
+  });
+
+  document
+    .getElementById("search-title")
+    .addEventListener("input", filterNovels);
+  document
+    .getElementById("search-genre")
+    .addEventListener("change", filterNovels);
 });
 
 document.getElementById("search-title").addEventListener("input", filterNovels);
