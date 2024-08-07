@@ -229,6 +229,21 @@ h2 {
   transform: scale(1.05);
 }
 
+.read-now {
+  background-color: var(--primary-color);
+  border: none;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.read-now:hover {
+  background-color: var(--accent-color);
+  color: #fff;
+}
+
 .search-bar {
   display: flex;
   justify-content: center;
