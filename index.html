@@ -187,24 +187,26 @@
           class="map"
         ></iframe>
 
-        <form action="">
+        <form id="contactForm" action="https://formspree.io/f/xnnavazo" method="POST">
           <div class="input-group">
             <i data-feather="user"></i>
-            <input type="text" placeholder="Your Name" />
+            <input type="text" name="name" placeholder="Your Name" required />
           </div>
           <div class="input-group">
             <i data-feather="mail"></i>
-            <input type="email" placeholder="Email" />
+            <input type="email" name="email" placeholder="Email" required />
           </div>
           <div class="input-group">
             <i data-feather="file-text"></i>
             <textarea
+              name="message"
               rows="4"
               type="textbox"
               placeholder="Critique Suggestions"
+              required
             ></textarea>
           </div>
-          <button type="submit" class="btn">Send Messages</button>
+          <button type="submit" class="btn" disabled>Send Messages</button>
         </form>
       </div>
     </section>
