@@ -43,6 +43,7 @@ function populateNovelList() {
                   <p class="genre">${
                     genreElement ? genreElement.innerText : "No Genre"
                   }</p>
+                  <button class="read-now">Baca Sekarang</button>
               </div>
           </article>
       `;
