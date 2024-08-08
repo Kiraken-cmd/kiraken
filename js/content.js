@@ -34,19 +34,24 @@ function submitComment() {
 }
 
 // Load comments function
-commentsRef.on("child_added", (data) => {
-  const commentData = data.val();
-  const commentElement = document.createElement("div");
-  commentElement.className = "comment";
-  commentElement.innerHTML = `
-      <p><strong>${commentData.name}</strong></p>
-      <p>${commentData.comment}</p>
-      <p class="comment-timestamp">${new Date(
-        commentData.timestamp
-      ).toLocaleString()}</p>
-  `;
-  document.getElementById("comments-list").appendChild(commentElement);
-});
+function loadComments() {
+  commentsRef.once("value", (snapshot) => {
+    const comments = snapshot.val();
+    const commentsList = document.getElementById("comments-list");
+    commentsList.innerHTML = ""; // Clear current comments
+    for (const id in comments) {
+      const commentData = comments[id];
+      const commentElement = document.createElement("div");
+      commentElement.className = "comment";
+      commentElement.innerHTML = `
+        <p><strong>${commentData.name}</strong></p>
+        <p>${commentData.comment}</p>
+        <p class="comment-timestamp">${new Date(commentData.timestamp).toLocaleString()}</p>
+      `;
+      commentsList.appendChild(commentElement);
+    }
+  });
+}
 
 // Scroll to Section
 function scrollToSection(sectionId) {
@@ -81,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const pageKey = document.body.getAttribute("data-page") || "defaultPageKey";
-  loadComments(pageKey);
+  loadComments();
 
   const scrollUpButton = document.getElementById("scroll-up");
   window.addEventListener("scroll", () => {
@@ -113,3 +118,6 @@ document.addEventListener("DOMContentLoaded", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 });
+
+// Event listener for submitting comment
+document.getElementById("submit-comment").addEventListener("click", submitComment);
