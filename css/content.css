@@ -317,6 +317,21 @@ button {
   margin-top: 0.25rem;
 }
 
+/* Centering Disqus container */
+#disqus_thread {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0; /* Add some margin for spacing */
+}
+
+/* Make iframe responsive */
+#disqus_thread iframe {
+  width: 100%;
+  max-width: 100%; /* Ensure it doesn't exceed container width */
+  height: auto; /* Maintain aspect ratio */
+  box-sizing: border-box;
+}
+
 footer {
   background: linear-gradient(
     to right,
@@ -469,6 +484,10 @@ footer {
   label,
   button {
     font-size: 14px; /* Ukuran font lebih kecil untuk perangkat kecil */
+  }
+
+  #disqus_thread {
+    margin: 10px 0;
   }
 }
 
