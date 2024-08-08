@@ -1,4 +1,12 @@
-// Scroll to Section
+// Mengatur view count page
+// document.addEventListener("DOMContentLoaded", function () {
+//   let viewCount = localStorage.getItem("viewCount") || 0;
+//   viewCount++;
+//   localStorage.setItem("viewCount", viewCount);
+//   document.getElementById("view-count").innerText = viewCount;
+// });
+
+// Scroll  Section
 function scrollToSection(sectionId) {
   const section = document.getElementById(sectionId);
   if (section) {
@@ -8,11 +16,8 @@ function scrollToSection(sectionId) {
   }
 }
 
-// Load comments when the page loads
-document.addEventListener('DOMContentLoaded', () => {
-  loadComments();
-
-  // Mengatur date table
+// Mengatur date table
+document.addEventListener("DOMContentLoaded", () => {
   const rows = document.querySelectorAll(".volume-container tbody tr");
 
   rows.forEach((row) => {
@@ -32,10 +37,39 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   });
+});
 
+// Function to edit a comment
+// function editComment(index) {
+//   const comments = JSON.parse(localStorage.getItem("comments")) || [];
+//   const commentText = prompt("Edit komentar:", comments[index].text);
+
+//   if (commentText !== null) {
+//     comments[index].text = commentText;
+//     saveComments(comments);
+//     loadComments();
+//   }
+// }
+
+// Function to delete a comment
+// function deleteComment(index) {
+//   if (confirm("Apakah Anda yakin ingin menghapus komentar ini?")) {
+//     const comments = JSON.parse(localStorage.getItem("comments")) || [];
+//     comments.splice(index, 1);
+//     saveComments(comments);
+//     loadComments();
+//   }
+// }
+
+// Load comments when the page is loaded
+window.addEventListener("load", loadComments);
+
+// Fungsi Scroll
+document.addEventListener("DOMContentLoaded", () => {
   const scrollUpButton = document.getElementById("scroll-up");
+
   window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) {
+    if (window.scrollY > 200) {
       scrollUpButton.style.display = "flex";
     } else {
       scrollUpButton.style.display = "none";
