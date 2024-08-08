@@ -1,12 +1,12 @@
-// Mengatur view count page
-// document.addEventListener("DOMContentLoaded", function () {
-//   let viewCount = localStorage.getItem("viewCount") || 0;
-//   viewCount++;
-//   localStorage.setItem("viewCount", viewCount);
-//   document.getElementById("view-count").innerText = viewCount;
-// });
+// Function to update view count
+document.addEventListener("DOMContentLoaded", function () {
+  let viewCount = localStorage.getItem("viewCount") || 0;
+  viewCount++;
+  localStorage.setItem("viewCount", viewCount);
+  document.getElementById("view-count").innerText = `${viewCount} Chapters`;
+});
 
-// Scroll  Section
+// Function to scroll to a section
 function scrollToSection(sectionId) {
   const section = document.getElementById(sectionId);
   if (section) {
@@ -16,7 +16,7 @@ function scrollToSection(sectionId) {
   }
 }
 
-// Mengatur date table
+// Function to update dates in the table
 document.addEventListener("DOMContentLoaded", () => {
   const rows = document.querySelectorAll(".volume-container tbody tr");
 
@@ -24,15 +24,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const dateCell = row.querySelector("td:nth-child(3)");
     const date = row.dataset.date;
 
-    console.log("Date from data-date attribute:", date); // Debugging line
-
     if (date) {
       const today = new Date();
       const chapterDate = new Date(date);
       const timeDiff = today - chapterDate;
       const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
-
-      console.log("Days difference:", daysDiff); // Debugging line
 
       if (daysDiff > 0) {
         dateCell.textContent = `${daysDiff} days ago`;
@@ -40,38 +36,56 @@ document.addEventListener("DOMContentLoaded", () => {
         dateCell.textContent = "Today";
       }
     } else {
-      console.log("No date found for this row"); // Debugging line
+      dateCell.textContent = "Date not available";
     }
   });
 });
 
+// Function to edit a comment (placeholder, as you might use localStorage or another method to manage comments)
+function editComment(index) {
+  const comments = JSON.parse(localStorage.getItem("comments")) || [];
+  const commentText = prompt("Edit comment:", comments[index].text);
 
-// Function to edit a comment
-// function editComment(index) {
-//   const comments = JSON.parse(localStorage.getItem("comments")) || [];
-//   const commentText = prompt("Edit komentar:", comments[index].text);
+  if (commentText !== null) {
+    comments[index].text = commentText;
+    saveComments(comments);
+    loadComments();
+  }
+}
 
-//   if (commentText !== null) {
-//     comments[index].text = commentText;
-//     saveComments(comments);
-//     loadComments();
-//   }
-// }
+// Function to delete a comment (placeholder, as you might use localStorage or another method to manage comments)
+function deleteComment(index) {
+  if (confirm("Are you sure you want to delete this comment?")) {
+    const comments = JSON.parse(localStorage.getItem("comments")) || [];
+    comments.splice(index, 1);
+    saveComments(comments);
+    loadComments();
+  }
+}
 
-// Function to delete a comment
-// function deleteComment(index) {
-//   if (confirm("Apakah Anda yakin ingin menghapus komentar ini?")) {
-//     const comments = JSON.parse(localStorage.getItem("comments")) || [];
-//     comments.splice(index, 1);
-//     saveComments(comments);
-//     loadComments();
-//   }
-// }
+// Function to save comments (placeholder, as you might use localStorage or another method to manage comments)
+function saveComments(comments) {
+  localStorage.setItem("comments", JSON.stringify(comments));
+}
 
-// Load comments when the page is loaded
-window.addEventListener("load", loadComments);
+// Function to load comments (placeholder, as you might use localStorage or another method to manage comments)
+function loadComments() {
+  const comments = JSON.parse(localStorage.getItem("comments")) || [];
+  const commentsContainer = document.getElementById("comments-list");
+  commentsContainer.innerHTML = "";
 
-// Fungsi Scroll
+  comments.forEach((comment, index) => {
+    const commentElement = document.createElement("div");
+    commentElement.innerHTML = `
+      <p>${comment.text}</p>
+      <button onclick="editComment(${index})">Edit</button>
+      <button onclick="deleteComment(${index})">Delete</button>
+    `;
+    commentsContainer.appendChild(commentElement);
+  });
+}
+
+// Function to handle scroll-to-top button visibility
 document.addEventListener("DOMContentLoaded", () => {
   const scrollUpButton = document.getElementById("scroll-up");
 
