@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coming Soon | KiraKen Novel</title>
+    <link rel="stylesheet" href="../css/content.css" />
+    <link rel="icon" href="../img/kiranovel.jpg" type="image/x-icon" />
+
+    <!-- Fontawesome -->
+    <script
+      src="https://kit.fontawesome.com/86258823cf.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body data-page="page3">
+    <!-- Section  Hero -->
+    <section id="home" class="hero">
+      <img src="../img/knicon.png" alt="" />
+      <p>Temukan dan baca novel favoritmu di sini</p>
+      <button onclick="window.location.href='../novel.html'">
+        Kembali Ke Menu Utama
+      </button>
+    </section>
+    <!-- End Section Hero -->
+
+    <!-- Main Content Section -->
+    <main id="main-content">
+      <div class="content-container">
+        <img
+          src="../img/comingsoon4.jpg"
+          alt="Novel Cover"
+          class="novel-image"
+        />
+        <div class="novel-details">
+          <h1 class="novel-title">Coming Soon</h1>
+          <p class="novel-views">
+            <i class="fa-solid fa-book fa-lg"></i>
+            <span id="view-count">6 Chapters</span>
+            <i class="fa-solid fa-file-invoice fa-lg"></i> Action
+          </p>
+          <p class="novel-author">Author: KiraKen</p>
+          <button
+            class="read-now-button"
+            onclick="scrollToSection('volumes-chapters')"
+          >
+            Baca Sekarang
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <!-- Synopsis Section -->
+    <section id="synopsis" class="synopsis">
+      <h2>Sinopsis</h2>
+      <p id="synopsis-text">
+        Dalam dunia yang penuh dengan bahaya dan ketegangan, kisah ini mengikuti
+        perjalanan seorang pahlawan yang tak kenal lelah. Menghadapi musuh-musuh
+        yang menakutkan dan situasi yang sangat menegangkan, mereka harus
+        mengandalkan keterampilan bertarung dan kecerdasan strategis mereka
+        untuk mengatasi tantangan yang ada. Setiap halaman novel ini akan
+        membawamu ke dalam dunia penuh aksi yang mendebarkan—dari pertempuran
+        yang sengit hingga aksi yang memacu adrenalin. Dengan alur cerita yang
+        cepat dan penuh kejutan, novel ini menawarkan campuran epik dari
+        pertarungan heroik, konspirasi gelap, dan perjuangan untuk keadilan. Di
+        tengah-tengah ledakan, perkelahian, dan aksi yang menegangkan, kamu akan
+        menemukan karakter-karakter yang kuat dan cerita yang mendalam. Apakah
+        pahlawan kita mampu mengatasi semua rintangan dan mencapai tujuannya?
+        Temukan jawabannya dalam petualangan yang penuh dengan adrenalin ini.
+        Siapkan dirimu untuk sebuah perjalanan yang penuh aksi dan
+        ketegangan—sebuah pengalaman yang tak akan pernah kamu lupakan!
+      </p>
+    </section>
+    <!-- End Synopsis Section -->
+
+    <!-- Volumes and Chapters Table -->
+    <section id="volumes-chapters" class="volumes-chapters">
+      <h2>Daftar Volume dan Chapter</h2>
+      <div class="volume-container">
+        <h3>Volume 1: Coming Soon</h3>
+        <table class="volume-container">
+          <thead>
+            <tr>
+              <th>Chapter</th>
+              <th>Title</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-date="2024-08-08">
+              <td>1</td>
+              <td>Coming Soon</td>
+              <td></td>
+            </tr>
+            <tr data-date="2024-08-08">
+              <td>2</td>
+              <td>Coming Soon</td>
+              <td></td>
+            </tr>
+            <!-- Add more rows for each chapter -->
+            <tr data-date="2024-08-08">
+              <td>3</td>
+              <td>Coming Soon</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="volume-container">
+        <h3>Volume 2: Coming Soon</h3>
+        <table class="volume-container">
+          <thead>
+            <tr>
+              <th>Chapter</th>
+              <th>Title</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-date="2024-08-08">
+              <td>4</td>
+              <td>Coming Soon</td>
+              <td></td>
+            </tr>
+            <tr data-date="2024-08-08">
+              <td>5</td>
+              <td>Coming Soon</td>
+              <td></td>
+            </tr>
+            <!-- Add more rows for each chapter -->
+            <tr data-date="2024-08-08">
+              <td>6</td>
+              <td>Coming Soon</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <!-- End Volumes and Chapters Table -->
+
+    <!-- Comment Section -->
+    <section id="comments" class="comments">
+      <h2>Comment</h2>
+      <div class="comment-form">
+        <input id="comment-name" type="text" value="Pembaca" readonly />
+        <textarea
+          id="comment-input"
+          placeholder="Beri komentar anda untuk novel ini..."
+          rows="5"
+          required
+        ></textarea>
+        <button onclick="submitComment()">Kirim Komentar</button>
+      </div>
+      <div id="comments-list" class="comments-list">
+        <!-- Comments will appear here -->
+      </div>
+    </section>
+    <!-- End Comments Section -->
+
+    <!-- Footer Section -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-logo">
+          <h2>KiraKen Novel</h2>
+        </div>
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#novel-list">Daftar Novel</a>
+        </div>
+        <div class="footer-social">
+          <h2>Ikuti Social Media Kami</h2>
+          <a
+            href="https://www.facebook.com/profile.php?id=61551526770794&mibextid=ZbWKwL"
+            target="_blank"
+            class="social-icon"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <a
+            href="https://x.com/0kiraken0?t=VMNZrdhhdvYMuvJmaRF6nQ&s=09"
+            target="_blank"
+            class="social-icon"
+            ><i class="fab fa-twitter"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/kir4.ken?igsh=MWZsamtmeTBlM2Zscg=="
+            target="_blank"
+            class="social-icon"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a
+            href="https://www.tiktok.com/@_kiraken_?_t=8oVG48F6G8O&_r=1"
+            target="_blank"
+            class="social-icon"
+            ><i class="fab fa-tiktok"></i
+          ></a>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2024 <a href="index.html">KiraKen</a> Novel. Semua hak cipta
+            dilindungi.
+          </p>
+        </div>
+      </div>
+    </footer>
+    <!-- End Footer Section -->
+
+    <!-- Scroll-Up Button -->
+    <button id="scroll-up" class="scroll-up">
+      <img src="../img/keqing.gif" alt="Scroll Up" />
+    </button>
+
+    <!-- JavaScript -->
+    <script src="../js/content.js"></script>
+  </body>
+</html>
