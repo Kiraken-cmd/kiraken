@@ -24,20 +24,27 @@ document.addEventListener("DOMContentLoaded", () => {
     const dateCell = row.querySelector("td:nth-child(3)");
     const date = row.dataset.date;
 
+    console.log("Date from data-date attribute:", date); // Debugging line
+
     if (date) {
       const today = new Date();
       const chapterDate = new Date(date);
       const timeDiff = today - chapterDate;
       const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
 
+      console.log("Days difference:", daysDiff); // Debugging line
+
       if (daysDiff > 0) {
         dateCell.textContent = `${daysDiff} days ago`;
       } else {
         dateCell.textContent = "Today";
       }
+    } else {
+      console.log("No date found for this row"); // Debugging line
     }
   });
 });
+
 
 // Function to edit a comment
 // function editComment(index) {
