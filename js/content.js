@@ -1,54 +1,3 @@
-// Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyBHPVw1i7gFhJ9xmtA-dH7DS4-qiSBpiiQ",
-  authDomain: "novel-a324b.firebaseapp.com",
-  databaseURL: "https://novel-a324b.firebaseio.com",
-  projectId: "novel-a324b",
-  storageBucket: "novel-a324b.appspot.com",
-  messagingSenderId: "426550920737",
-  appId: "1:426550920737:web:5e412b9f3b6e732f3b0560",
-  measurementId: "G-ETT74G5XQR",
-};
-
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-const database = firebase.database();
-const commentsRef = database.ref('comments');
-
-// Function to submit a comment
-function submitComment() {
-  const name = document.getElementById('comment-name').value;
-  const comment = document.getElementById('comment-input').value;
-
-  if (comment.trim()) {
-    const newCommentRef = commentsRef.push();
-    newCommentRef.set({
-      name: name,
-      comment: comment,
-      timestamp: new Date().toISOString()
-    }).then(() => {
-      document.getElementById('comment-input').value = ''; // Clear the input
-    }).catch((error) => {
-      console.error('Error adding comment:', error);
-    });
-  } else {
-    alert('Komentar tidak boleh kosong.');
-  }
-}
-
-// Function to load comments
-function loadComments() {
-  commentsRef.orderByChild('timestamp').on('child_added', (snapshot) => {
-    const commentData = snapshot.val();
-    const commentElement = document.createElement('div');
-    commentElement.classList.add('comment-item');
-    commentElement.innerHTML = `
-      <p><strong>${commentData.name}:</strong> ${commentData.comment}</p>
-    `;
-    document.getElementById('comments-list').appendChild(commentElement);
-  });
-}
-
 // Scroll to Section
 function scrollToSection(sectionId) {
   const section = document.getElementById(sectionId);
@@ -96,7 +45,4 @@ document.addEventListener('DOMContentLoaded', () => {
   scrollUpButton.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
-
-  // Event listener for submitting comment
-  document.getElementById("submit-comment").addEventListener("click", submitComment);
 });
