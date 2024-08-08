@@ -1,4 +1,4 @@
-// Your Firebase configuration
+// Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyBHPVw1i7gFhJ9xmtA-dH7DS4-qiSBpiiQ",
   authDomain: "novel-a324b.firebaseapp.com",
@@ -14,9 +14,6 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
 const commentsRef = database.ref('comments');
-
-// Reference to comments in database
-const commentsRef = firebase.database().ref("comments");
 
 // Function to submit a comment
 function submitComment() {
@@ -63,10 +60,10 @@ function scrollToSection(sectionId) {
 }
 
 // Load comments when the page loads
-document.addEventListener('DOMContentLoaded', loadComments);
+document.addEventListener('DOMContentLoaded', () => {
+  loadComments();
 
-// Mengatur date table
-document.addEventListener("DOMContentLoaded", () => {
+  // Mengatur date table
   const rows = document.querySelectorAll(".volume-container tbody tr");
 
   rows.forEach((row) => {
@@ -99,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
   scrollUpButton.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
-});
 
-// Event listener for submitting comment
-document.getElementById("submit-comment").addEventListener("click", submitComment);
+  // Event listener for submitting comment
+  document.getElementById("submit-comment").addEventListener("click", submitComment);
+});
