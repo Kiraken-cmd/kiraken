@@ -1,3 +1,53 @@
+// Your Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyBHPVw1i7gFhJ9xmtA-dH7DS4-qiSBpiiQ",
+  authDomain: "novel-a324b.firebaseapp.com",
+  databaseURL: "https://novel-a324b.firebaseio.com",
+  projectId: "novel-a324b",
+  storageBucket: "novel-a324b.appspot.com",
+  messagingSenderId: "426550920737",
+  appId: "1:426550920737:web:5e412b9f3b6e732f3b0560",
+  measurementId: "G-ETT74G5XQR",
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+// Reference to comments in database
+const commentsRef = firebase.database().ref("comments");
+
+// Submit comment function
+function submitComment() {
+  const name = document.getElementById("comment-name").value;
+  const comment = document.getElementById("comment-input").value;
+
+  if (comment !== "") {
+    const newCommentRef = commentsRef.push();
+    newCommentRef.set({
+      name: name,
+      comment: comment,
+      timestamp: new Date().toISOString(),
+    });
+
+    document.getElementById("comment-input").value = "";
+  }
+}
+
+// Load comments function
+commentsRef.on("child_added", (data) => {
+  const commentData = data.val();
+  const commentElement = document.createElement("div");
+  commentElement.className = "comment";
+  commentElement.innerHTML = `
+      <p><strong>${commentData.name}</strong></p>
+      <p>${commentData.comment}</p>
+      <p class="comment-timestamp">${new Date(
+        commentData.timestamp
+      ).toLocaleString()}</p>
+  `;
+  document.getElementById("comments-list").appendChild(commentElement);
+});
+
 // Scroll to Section
 function scrollToSection(sectionId) {
   const section = document.getElementById(sectionId);
@@ -46,46 +96,6 @@ document.addEventListener("DOMContentLoaded", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 });
-
-function submitComment() {
-  const nameInput = document.getElementById("comment-name");
-  const commentInput = document.getElementById("comment-input");
-  const name = nameInput.value.trim();
-  const commentText = commentInput.value.trim();
-  const pageKey = document.body.getAttribute("data-page") || "defaultPageKey";
-
-  if (name && commentText) {
-    const comments = JSON.parse(localStorage.getItem(pageKey)) || [];
-    const date = new Date().toLocaleDateString();
-
-    comments.push({ name, commentText, date });
-    localStorage.setItem(pageKey, JSON.stringify(comments));
-
-    const commentsList = document.getElementById("comments-list");
-    const comment = document.createElement("div");
-    comment.classList.add("comment");
-    comment.innerHTML = `<p class="author">${name}</p><p class="date">${date}</p><p>${commentText}</p>`;
-    commentsList.appendChild(comment);
-
-    nameInput.value = "";
-    commentInput.value = "";
-  } else {
-    alert("Harap masukkan nama dan komentar");
-  }
-}
-
-function loadComments(pageKey) {
-  const comments = JSON.parse(localStorage.getItem(pageKey)) || [];
-  const commentsList = document.getElementById("comments-list");
-
-  commentsList.innerHTML = "";
-  comments.forEach(({ name, commentText, date }) => {
-    const comment = document.createElement("div");
-    comment.classList.add("comment");
-    comment.innerHTML = `<p class="author">${name}</p><p class="date">${date}</p><p>${commentText}</p>`;
-    commentsList.appendChild(comment);
-  });
-}
 
 // Fungsi Scroll
 document.addEventListener("DOMContentLoaded", () => {
