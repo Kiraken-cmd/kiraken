@@ -12,48 +12,43 @@ const firebaseConfig = {
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+const database = firebase.database();
+const commentsRef = database.ref('comments');
 
 // Reference to comments in database
 const commentsRef = firebase.database().ref("comments");
 
-// Submit comment function
+// Function to submit a comment
 function submitComment() {
-  const name = document.getElementById("comment-name").value;
-  const comment = document.getElementById("comment-input").value;
+  const name = document.getElementById('comment-name').value;
+  const comment = document.getElementById('comment-input').value;
 
-  if (comment !== "") {
+  if (comment.trim()) {
     const newCommentRef = commentsRef.push();
     newCommentRef.set({
       name: name,
       comment: comment,
-      timestamp: new Date().toISOString(),
+      timestamp: new Date().toISOString()
     }).then(() => {
-      document.getElementById("comment-input").value = ""; // Clear input after successful submission
+      document.getElementById('comment-input').value = ''; // Clear the input
     }).catch((error) => {
-      console.error("Error adding comment: ", error);
+      console.error('Error adding comment:', error);
     });
+  } else {
+    alert('Komentar tidak boleh kosong.');
   }
 }
 
-// Load comments function
+// Function to load comments
 function loadComments() {
-  commentsRef.once("value", (snapshot) => {
-    const comments = snapshot.val();
-    const commentsList = document.getElementById("comments-list");
-    commentsList.innerHTML = ""; // Clear current comments
-    for (const id in comments) {
-      const commentData = comments[id];
-      const commentElement = document.createElement("div");
-      commentElement.className = "comment";
-      commentElement.innerHTML = `
-        <p><strong>${commentData.name}</strong></p>
-        <p>${commentData.comment}</p>
-        <p class="comment-timestamp">${new Date(commentData.timestamp).toLocaleString()}</p>
-      `;
-      commentsList.appendChild(commentElement);
-    }
-  }).catch((error) => {
-    console.error("Error loading comments: ", error);
+  commentsRef.orderByChild('timestamp').on('child_added', (snapshot) => {
+    const commentData = snapshot.val();
+    const commentElement = document.createElement('div');
+    commentElement.classList.add('comment-item');
+    commentElement.innerHTML = `
+      <p><strong>${commentData.name}:</strong> ${commentData.comment}</p>
+    `;
+    document.getElementById('comments-list').appendChild(commentElement);
   });
 }
 
@@ -66,6 +61,9 @@ function scrollToSection(sectionId) {
     console.error(`Section with ID ${sectionId} not found.`);
   }
 }
+
+// Load comments when the page loads
+document.addEventListener('DOMContentLoaded', loadComments);
 
 // Mengatur date table
 document.addEventListener("DOMContentLoaded", () => {
@@ -88,9 +86,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   });
-
-  // Load comments when the page loads
-  loadComments();
 
   const scrollUpButton = document.getElementById("scroll-up");
   window.addEventListener("scroll", () => {
