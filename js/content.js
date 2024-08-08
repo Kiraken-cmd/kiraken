@@ -27,9 +27,11 @@ function submitComment() {
       name: name,
       comment: comment,
       timestamp: new Date().toISOString(),
+    }).then(() => {
+      document.getElementById("comment-input").value = ""; // Clear input after successful submission
+    }).catch((error) => {
+      console.error("Error adding comment: ", error);
     });
-
-    document.getElementById("comment-input").value = "";
   }
 }
 
@@ -50,6 +52,8 @@ function loadComments() {
       `;
       commentsList.appendChild(commentElement);
     }
+  }).catch((error) => {
+    console.error("Error loading comments: ", error);
   });
 }
 
@@ -85,27 +89,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  const pageKey = document.body.getAttribute("data-page") || "defaultPageKey";
+  // Load comments when the page loads
   loadComments();
 
   const scrollUpButton = document.getElementById("scroll-up");
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) {
-      scrollUpButton.style.display = "flex";
-    } else {
-      scrollUpButton.style.display = "none";
-    }
-  });
-
-  scrollUpButton.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-});
-
-// Fungsi Scroll
-document.addEventListener("DOMContentLoaded", () => {
-  const scrollUpButton = document.getElementById("scroll-up");
-
   window.addEventListener("scroll", () => {
     if (window.scrollY > 300) {
       scrollUpButton.style.display = "flex";
