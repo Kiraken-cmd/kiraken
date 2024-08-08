@@ -74,6 +74,7 @@ h2 {
   align-items: center;
   padding: 2rem;
   background-color: var(--background-color);
+  flex-direction: column;
 }
 
 .content-container {
@@ -246,7 +247,7 @@ h2 {
 }
 
 .comment-form {
-  margin-bottom: 1rem;
+  margin: 20px 0;
 }
 
 .comment-form textarea {
@@ -273,7 +274,7 @@ h2 {
 }
 
 .comments-list {
-  margin-top: 1rem;
+  margin-top: 20px;
 }
 
 .comment {
@@ -407,6 +408,10 @@ footer {
   .content-container {
     flex-direction: column;
     text-align: center;
+  }
+
+  .hero, #main-content {
+    padding: 10px;
   }
 
   .novel-image {
