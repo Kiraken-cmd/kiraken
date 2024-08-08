@@ -1,11 +1,3 @@
-// Function to update view count
-document.addEventListener("DOMContentLoaded", function () {
-  let viewCount = localStorage.getItem("viewCount") || 0;
-  viewCount++;
-  localStorage.setItem("viewCount", viewCount);
-  document.getElementById("view-count").innerText = `${viewCount} Chapters`;
-});
-
 // Function to scroll to a section
 function scrollToSection(sectionId) {
   const section = document.getElementById(sectionId);
