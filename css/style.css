@@ -350,6 +350,35 @@ footer .credit a {
   font-weight: 700;
 }
 
+/* Music Control */
+.music-control {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.music-control button {
+  background-color: var(--accent-color);
+  border: none;
+  padding: 1.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+
+.music-control button:hover {
+  background-color: #5e5bd5;
+}
+
+.music-control button i {
+  color: #fff;
+  font-size: 1.5rem;
+}
+
 /* media queries */
 /* laptop */
 @media (max-width: 1366px) {
