@@ -1,6 +1,7 @@
 :root {
   --primary: #7b79e7;
   --bg: #010101;
+  --accent-color: #ffd700; /* Warna aksen */
 }
 
 * {
