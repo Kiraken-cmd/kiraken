@@ -117,10 +117,10 @@ h2 {
 }
 
 .synopsis {
-  padding: 2rem 1rem;
+  padding: 2rem 2rem;
   background-color: var(--background-color);
   color: var(--text-color);
-  text-align: center;
+  text-align: left;
   margin-top: 2rem;
   border-radius: 10px;
 }
@@ -131,7 +131,7 @@ h2 {
 }
 
 .synopsis p {
-  font-size: 1rem;
+  font-size: 1.2rem;
   line-height: 1.6;
 }
 
@@ -445,11 +445,11 @@ footer {
   }
 
   .synopsis h2 {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
   }
 
   .synopsis p {
-    font-size: 0.875rem;
+    font-size: 1rem;
   }
 
   .volume-container table {
