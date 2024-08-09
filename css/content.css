@@ -450,6 +450,7 @@ footer {
 
   .synopsis p {
     font-size: 1rem;
+    padding: 0 1rem;
   }
 
   .volume-container table {
