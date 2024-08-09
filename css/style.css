@@ -486,4 +486,17 @@ footer .credit a {
   html {
     font-size: 55%;
   }
+
+  .music-control {
+    bottom: 10px;
+    right: 10px;
+  }
+
+  .music-control button {
+    padding: 1rem;
+  }
+
+  .music-control button i {
+    font-size: 1.5rem;
+  }
 }
