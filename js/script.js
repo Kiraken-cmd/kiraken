@@ -56,3 +56,22 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+// Control Music function
+document.addEventListener("DOMContentLoaded", function () {
+  const backgroundMusic = document.getElementById("backgroundMusic");
+  const playPauseBtn = document.getElementById("playPauseBtn");
+  const playPauseIcon = document.getElementById("playPauseIcon");
+
+  playPauseBtn.addEventListener("click", function () {
+    if (backgroundMusic.paused) {
+      backgroundMusic.play();
+      playPauseIcon.classList.remove("fa-play");
+      playPauseIcon.classList.add("fa-pause");
+    } else {
+      backgroundMusic.pause();
+      playPauseIcon.classList.remove("fa-pause");
+      playPauseIcon.classList.add("fa-play");
+    }
+  });
+});
