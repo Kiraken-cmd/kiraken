@@ -99,3 +99,12 @@ navbarLinks.forEach((link) => {
     });
   });
 });
+
+// Url Config
+if (window.location.pathname.endsWith("index.html")) {
+  window.history.pushState(
+    {},
+    "",
+    window.location.pathname.replace("index.html", "")
+  );
+}
