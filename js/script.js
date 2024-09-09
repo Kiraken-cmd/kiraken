@@ -99,10 +99,3 @@ navbarLinks.forEach((link) => {
     });
   });
 });
-
-// Url Config
-let currentPath = window.location.pathname;
-if (currentPath.endsWith("index.html")) {
-  let newPath = currentPath.slice(0, -11);
-  window.history.replaceState(null, "", newPath);
-}
