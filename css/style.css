@@ -441,13 +441,9 @@ footer {
   cursor: pointer;
 }
 
-.popup-content video {
-  width: 80%; /* Video mengisi lebar kontainer */
-  max-width: 600px; /* Maksimal lebar video */
-  border-radius: 10px; /* Sudut video membulat */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Bayangan video */
-  display: block; /* Memastikan video di blok level dan berada di baris baru */
-  margin: 10px auto; /* Memusatkan video di tengah kontainer */
+audio {
+  width: 100%;
+  margin: 15px auto;
 }
 
 /* Tambahan untuk animasi zoom-in dan zoom-out */
@@ -554,7 +550,7 @@ footer {
 @media screen and (max-width: 480px) {
   .popup-content {
     width: 90%; /* Lebar popup disesuaikan lebih besar untuk layar sangat kecil */
-    margin: 10% auto; /* Kurangi margin atas agar popup tidak terlalu ke bawah */
+    margin: 40% auto; /* Kurangi margin atas agar popup tidak terlalu ke bawah */
     padding: 10px; /* Kurangi padding lebih jauh di layar sangat kecil */
   }
 
