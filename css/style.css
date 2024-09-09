@@ -401,6 +401,64 @@ footer {
   border-radius: 50%; /* Ensure the GIF fits within the circular button */
 }
 
+/* Style Popup */
+.popup {
+  display: none; /* Popup tidak terlihat secara default */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Latar belakang semi-transparan */
+  overflow: auto;
+}
+
+.popup-content {
+  text-align: center;
+  font-style: italic;
+  background-color: white;
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 50%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transform: scale(0); /* Inisialisasi dengan ukuran 0 (untuk animasi zoom) */
+  transition: transform 0.5s ease-in-out; /* Transisi untuk animasi zoom */
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.popup-content video {
+  width: 80%; /* Video mengisi lebar kontainer */
+  max-width: 600px; /* Maksimal lebar video */
+  border-radius: 10px; /* Sudut video membulat */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Bayangan video */
+  display: block; /* Memastikan video di blok level dan berada di baris baru */
+  margin: 10px auto; /* Memusatkan video di tengah kontainer */
+}
+
+/* Tambahan untuk animasi zoom-in dan zoom-out */
+.popup.show .popup-content {
+  transform: scale(1); /* Zoom-in ke ukuran normal */
+}
+
+.popup.hide .popup-content {
+  transform: scale(0); /* Zoom-out ke ukuran 0 */
+}
+
 @media (max-width: 768px) {
   nav ul {
     flex-direction: column;
@@ -481,5 +539,34 @@ footer {
 
   .footer-social .social-icon {
     margin: 0.5rem;
+  }
+
+  .popup-content {
+    width: 80%; /* Lebar popup disesuaikan untuk layar lebih kecil */
+    padding: 15px; /* Kurangi padding agar lebih pas */
+  }
+
+  .close {
+    font-size: 24px; /* Ukuran tombol close lebih kecil di layar mobile */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .popup-content {
+    width: 90%; /* Lebar popup disesuaikan lebih besar untuk layar sangat kecil */
+    margin: 10% auto; /* Kurangi margin atas agar popup tidak terlalu ke bawah */
+    padding: 10px; /* Kurangi padding lebih jauh di layar sangat kecil */
+  }
+
+  .close {
+    font-size: 22px; /* Ukuran tombol close lebih kecil di layar yang lebih kecil */
+  }
+
+  h2 {
+    font-size: 18px; /* Sesuaikan ukuran teks heading agar lebih pas di layar kecil */
+  }
+
+  p {
+    font-size: 14px; /* Sesuaikan ukuran teks paragraf untuk layar kecil */
   }
 }

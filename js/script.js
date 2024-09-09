@@ -99,3 +99,46 @@ navbarLinks.forEach((link) => {
     });
   });
 });
+
+// Mendapatkan elemen popup dan konten popup
+var popup = document.getElementById("popup");
+var popupContent = document.getElementById("popupContent");
+
+// Mendapatkan elemen <span> yang menutup popup
+var closePopupButton = document.getElementById("closePopup");
+
+// Fungsi untuk menampilkan popup saat halaman dimuat
+window.onload = function () {
+  // Tampilkan popup dengan mengubah display menjadi "block"
+  popup.style.display = "block";
+
+  // Tambahkan sedikit delay untuk memulai animasi zoom-in
+  setTimeout(function () {
+    popup.classList.add("show"); // Tambah kelas "show" untuk zoom-in
+  }, 50); // Delay singkat untuk memastikan popup muncul dulu sebelum animasi
+};
+
+// Saat pengguna mengklik <span> (tanda X), tutup popup dengan animasi
+closePopupButton.onclick = function () {
+  popup.classList.remove("show"); // Hapus kelas "show"
+  popup.classList.add("hide"); // Tambah kelas "hide" untuk zoom-out
+
+  // Tunggu hingga animasi selesai sebelum benar-benar menutup popup
+  setTimeout(function () {
+    popup.style.display = "none";
+    popup.classList.remove("hide"); // Hapus kelas "hide" setelah selesai
+  }, 500); // Waktu ini disesuaikan dengan durasi animasi di CSS (0.5s)
+};
+
+// Tutup popup saat mengklik di luar konten popup dengan animasi
+window.onclick = function (event) {
+  if (event.target == popup) {
+    popup.classList.remove("show");
+    popup.classList.add("hide");
+
+    setTimeout(function () {
+      popup.style.display = "none";
+      popup.classList.remove("hide");
+    }, 500);
+  }
+};
