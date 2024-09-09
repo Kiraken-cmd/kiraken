@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KiraKen Novel</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="img/kiranovel.jpg" type="image/x-icon" />
+
+    <!-- Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Fontawesome -->
+    <script
+      src="https://kit.fontawesome.com/86258823cf.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- Section Navbar -->
+    <button id="toggle-navbar" class="toggle-navbar">☰</button>
+    <nav id="navbar" class="url">
+      <ul>
+        <li><a href="javascript:void(0);" data-id="home">Home</a></li>
+        <li><a href="javascript:void(0);" data-id="new">Daftar Novel</a></li>
+        <li><a href="javascript:void(0);" data-id="about">Tentang Kami</a></li>
+        <li><a href="javascript:void(0);" data-id="feedback">Feedback</a></li>
+      </ul>
+    </nav>
+
+    <!-- End Section Navbar -->
+
+    <!-- Section Hero -->
+    <main>
+      <section id="home" class="hero">
+        <h2>Selamat Datang di KiraKen Novel</h2>
+        <p>Temukan dan baca novel favoritmu di sini</p>
+        <button onclick="scrollToSection('new')">Mulai Membaca</button>
+      </section>
+      <!-- End Section Hero -->
+
+      <!-- Section Menu Novel Terbaru -->
+      <h2 id="new">Daftar Novel</h2>
+      <div class="search-bar">
+        <input
+          type="text"
+          id="search-title"
+          placeholder="Cari berdasarkan judul..."
+        />
+        <select id="search-genre">
+          <option value="">Semua Genre</option>
+          <option value="Action">Action</option>
+          <option value="Adventure">Adventure</option>
+          <option value="Comedy">Comedy</option>
+          <option value="Drama">Drama</option>
+          <option value="Ecchi">Ecchi</option>
+          <option value="Fantasy">Fantasy</option>
+          <option value="Harem">Harem</option>
+          <option value="Isekai">Isekai</option>
+          <option value="Mystery">Mystery</option>
+          <option value="Psychology">Psychology</option>
+          <option value="Romance">Romance</option>
+          <option value="Sci-Fi">Sci-Fi</option>
+          <option value="Slice of Life">Slice of Life</option>
+          <!-- Tambahkan genre lainnya sesuai kebutuhan -->
+        </select>
+        <button onclick="filterNovels()">Cari</button>
+      </div>
+      <section id="latest" class="novel-list">
+        <article class="novel-item">
+          <img src="img/journey.jpg" alt="Judul Novel 2" />
+          <div class="novel-content">
+            <h3>Journey of the Eternal: The Cultivator’s Ascension</h3>
+            <p>Status: Ongoing</p>
+            <p class="genre">
+              Genre: Adventure, Ecchi, Fantasy, Harem, Isekai, Romance
+            </p>
+            <button
+              class="read-now"
+              onclick="window.location.href='novel/journey-eternal.html'"
+            >
+              Detail Novel
+            </button>
+          </div>
+        </article>
+        <article class="novel-item">
+          <img src="img/oblivon.jpg" alt="Judul Novel 2" />
+          <div class="novel-content">
+            <h3>Vengeance Code: The Rise of Oblivion</h3>
+            <p>Status: Ongoing</p>
+            <p class="genre">Genre: Action, Psychology, Sci-fi</p>
+            <button class="read-now">Detail Novel</button>
+          </div>
+        </article>
+        <article class="novel-item">
+          <img src="img/sunsetangel.jpg" alt="Judul Novel 1" />
+          <div class="novel-content">
+            <h3>Cahaya yang Menghangatkan Senja</h3>
+            <p>Status: Maintenance</p>
+            <p class="genre">Genre: Drama, Romance, Slice of Life</p>
+            <button class="read-now">Detail Novel</button>
+          </div>
+        </article>
+        <article class="novel-item">
+          <img src="img/aetherius-novel.png" alt="Judul Novel 2" />
+          <div class="novel-content">
+            <h3>Magia Harem: Akademi Aetherius</h3>
+            <p>Status: Maintenance</p>
+            <p class="genre">
+              Genre: Action, Comedy, Ecchi, Fantasy, Harem, Romance
+            </p>
+            <button class="read-now">Detail Novel</button>
+          </div>
+        </article>
+        <article class="novel-item">
+          <img src="img/comingsoon5.jpg" alt="Judul Novel 2" />
+          <div class="novel-content">
+            <h3>Coming Soon</h3>
+            <p>Status: Coming Soon</p>
+            <p class="genre">Genre: Mystery</p>
+            <button class="read-now">Detail Novel</button>
+          </div>
+        </article>
+        <article class="novel-item">
+          <img src="img/comingsoon6 .jpg" alt="Judul Novel 2" />
+          <div class="novel-content">
+            <h3>Coming Soon</h3>
+            <p>Status: Coming Soon</p>
+            <p class="genre">Genre: Mystery</p>
+            <button class="read-now">Detail Novel</button>
+          </div>
+        </article>
+        <!-- Tambahkan novel terbaru lainnya sesuai kebutuhan -->
+      </section>
+      <!-- End Section Novel terbaru -->
+
+      <!-- Section About/Tentang Kami -->
+      <section id="about" class="about">
+        <h2>Tentang Kami</h2>
+        <p>
+          Selamat datang di <strong>KiraKen Novel</strong>, platform inovatif
+          yang dirancang khusus untuk para penggemar novel di seluruh dunia.
+          Kami adalah tim yang berdedikasi untuk menyediakan pengalaman membaca
+          novel yang memuaskan, menyenangkan, dan mudah diakses.
+        </p>
+        <br />
+        <p>
+          <strong>Apa yang Kami Tawarkan</strong><br />
+          Di <strong>KiraKen Novel</strong>, kami menawarkan berbagai macam
+          novel dari berbagai genre, mulai dari Romance yang menyentuh hati,
+          Fantasy yang membawa Anda ke dunia ajaib, hingga Action dan Sci-Fi
+          yang penuh dengan petualangan dan imajinasi dan berbagai genre
+          lainnya. Kami akan berusaha untuk memastikan koleksi kami selalu
+          diperbarui dengan novel-novel terbaru dan terbaik.
+        </p>
+        <br />
+        <p>
+          <strong>Misi Kami</strong><br />
+          Misi kami adalah menjadi sumber utama bagi para pembaca untuk
+          menemukan dan menikmati novel favorit mereka. Kami percaya bahwa
+          setiap novel memiliki kekuatan untuk menginspirasi, menghibur, dan
+          memberikan perspektif baru. Dengan antarmuka yang ramah pengguna dan
+          fitur pencarian yang canggih, kami berkomitmen untuk memberikan
+          pengalaman membaca yang mudah dan menyenangkan.
+        </p>
+        <br />
+        <p>
+          <strong>Komunitas Pembaca</strong><br />
+          Kami juga berupaya untuk membangun komunitas pembaca yang aktif dan
+          terlibat. Melalui fitur ulasan dan rating, Anda dapat berbagi pendapat
+          dan rekomendasi dengan sesama pembaca. Kami juga menyediakan ruang
+          untuk diskusi dan interaksi tentang novel favorit Anda.
+        </p>
+        <br />
+        <p>
+          <strong>Hubungi Kami</strong><br />
+          Jika Anda memiliki pertanyaan, saran, atau ingin memberikan umpan
+          balik, jangan ragu untuk menghubungi kami melalui halaman Feedback.
+          Kami sangat menghargai masukan Anda dan selalu berusaha untuk
+          meningkatkan layanan kami.
+        </p>
+        <br />
+        <p>
+          Terima kasih telah mengunjungi <strong>KiraKen Novel</strong>. Selamat
+          membaca dan semoga Anda menemukan banyak novel menarik dan
+          menginspirasi!
+        </p>
+        <br />
+      </section>
+      <!-- End Section About/Tentang Kami -->
+
+      <!-- Section Feedback -->
+      <section id="feedback" class="feedback-section">
+        <h2>Feedback</h2>
+        <p>
+          Mohon untuk menulis email dengan benar agar kami dapat membalas
+          feedback anda. Berikan pendapat dan saran Anda di bawah ini:
+        </p>
+        <form
+          action="https://formspree.io/f/xnnavazo"
+          method="POST"
+          class="feedback-form"
+        >
+          <input type="text" name="text" placeholder="Nama" required />
+          <input type="email" name="email" placeholder="Email" required />
+          <textarea
+            name="message"
+            placeholder="Pesan Anda...."
+            required
+          ></textarea>
+          <button type="submit">Kirim Pesan</button>
+        </form>
+      </section>
+      <!-- End Section Feedback -->
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-logo">
+          <h2>Ikuti Social Media Kami</h2>
+        </div>
+        <div class="footer-social">
+          <a
+            href="https://www.facebook.com/profile.php?id=61551526770794&mibextid=ZbWKwL"
+            target="_blank"
+            class="social-icon"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <a
+            href="https://x.com/0kiraken0?t=VMNZrdhhdvYMuvJmaRF6nQ&s=09"
+            target="_blank"
+            class="social-icon"
+            ><i class="fab fa-twitter"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/kir4.ken?igsh=MWZsamtmeTBlM2Zscg=="
+            target="_blank"
+            class="social-icon"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a
+            href="https://www.tiktok.com/@_kiraken_?_t=8oVG48F6G8O&_r=1"
+            target="_blank"
+            class="social-icon"
+            ><i class="fa-brands fa-tiktok"></i
+          ></a>
+          <a
+            href="https://discord.com/invite/8QH7XSEjFb"
+            target="_blank"
+            class="social-icon"
+            ><i class="fa-brands fa-discord"></i
+          ></a>
+        </div>
+        <div class="footer-bottom">
+          <p>Created By <a href="#">KiraKen Novel</a> | &copy; 2024</p>
+        </div>
+      </div>
+    </footer>
+    <!-- End Footer Section -->
+
+    <!-- Scroll-Up Button -->
+    <button id="scroll-up" class="scroll-up">
+      <img src="img/keqing.gif" alt="Scroll Up" />
+    </button>
+
+    <!-- Javascript -->
+    <script src="js/script.js"></script>
+  </body>
+</html>
