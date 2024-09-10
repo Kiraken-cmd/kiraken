@@ -26,6 +26,18 @@ body {
   line-height: 1.6;
 }
 
+a {
+  text-decoration: none;
+}
+
+.novel-author a {
+  color: var(--primary-color);
+}
+
+.novel-author a:hover {
+  color: var(--accent-color);
+}
+
 h2 {
   text-align: center;
 }
