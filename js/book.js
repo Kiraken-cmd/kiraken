@@ -23,6 +23,23 @@ function showChapter(index) {
   nextButton.style.display = index < chapters.length - 1 ? "block" : "none";
 }
 
+// Fungsi untuk menemukan chapter berdasarkan hash
+function showChapterFromHash() {
+  const hash = window.location.hash; // Dapatkan hash dari URL
+
+  // Temukan index chapter yang sesuai dengan hash
+  const index = chapters.findIndex((chapter) => `#${chapter.id}` === hash);
+
+  if (index !== -1) {
+    currentChapterIndex = index;
+    showChapter(currentChapterIndex);
+    window.scrollTo(0, 0); // Gulir ke atas saat chapter ditampilkan
+  } else {
+    // Jika tidak ada hash yang valid, tampilkan chapter pertama
+    showChapter(0);
+  }
+}
+
 // Menangani klik tombol Previous
 prevButton.addEventListener("click", () => {
   if (currentChapterIndex > 0) {
@@ -69,37 +86,19 @@ searchInput.addEventListener("keyup", (e) => {
   }
 });
 
-// Saat halaman dimuat
+// Saat halaman dimuat pertama kali
 document.addEventListener("DOMContentLoaded", () => {
-  const hash = window.location.hash;
+  showChapterFromHash(); // Tampilkan chapter berdasarkan hash di URL
+});
 
-  // Cari chapter dengan ID yang sesuai
-  const index = chapters.findIndex((chapter) => `#${chapter.id}` === hash);
-
-  if (index !== -1) {
-    // Jika hash ditemukan, tampilkan chapter yang sesuai
-    currentChapterIndex = index;
-    showChapter(currentChapterIndex);
-  } else {
-    // Jika tidak ada hash, tampilkan chapter pertama
-    showChapter(0);
-  }
+// Memantau perubahan hash pada URL dan memperbarui chapter
+window.addEventListener("hashchange", () => {
+  showChapterFromHash(); // Tampilkan chapter berdasarkan hash baru
 });
 
 // Jika halaman di-reload tanpa hash, tampilkan chapter pertama
 document.addEventListener("DOMContentLoaded", () => {
-  showChapter(0);
+  if (!window.location.hash) {
+    showChapter(0);
+  }
 });
-
-// Url Function
-// Mendapatkan path dari URL saat ini
-let currentPath = window.location.pathname;
-
-// Mengecek apakah path diakhiri dengan ".html"
-if (currentPath.endsWith(".html")) {
-  // Menghapus ".html" dari akhir path
-  let newPath = currentPath.slice(0, -5);
-
-  // Mengubah URL tanpa memuat ulang halaman
-  window.history.replaceState(null, "", newPath);
-}
