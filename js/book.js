@@ -14,9 +14,9 @@ function showChapter(index) {
     chapter.style.display = i === index ? "block" : "none";
   });
 
-  // Perbarui URL dengan path /chapter-id tanpa hash
+  // Perbarui URL dengan ID chapter saat ini
   const chapterId = chapters[index].id;
-  window.history.replaceState(null, null, `/${chapterId}`);
+  window.history.replaceState(null, null, `#${chapterId}`);
 
   // Atur visibilitas tombol Previous dan Next
   prevButton.style.display = index > 0 ? "block" : "none";
@@ -40,6 +40,8 @@ nextButton.addEventListener("click", () => {
     window.scrollTo(0, 0);
   }
 });
+
+// src.js
 
 // Fungsi pencarian
 const searchInput = document.getElementById("search-bar");
@@ -69,20 +71,19 @@ searchInput.addEventListener("keyup", (e) => {
   }
 });
 
-// Menangani pengambilan path saat halaman dimuat
 document.addEventListener("DOMContentLoaded", () => {
-  // Ambil path dari URL saat ini (bukan hash)
-  const path = window.location.pathname;
+  // Ambil hash dari URL saat ini
+  const hash = window.location.hash;
 
-  // Temukan chapter dengan ID yang sesuai dengan path
-  const index = chapters.findIndex((chapter) => `/${chapter.id}` === path);
+  // Temukan chapter dengan ID yang sesuai
+  const index = chapters.findIndex((chapter) => `#${chapter.id}` === hash);
 
   if (index !== -1) {
-    // Jika ID ditemukan di path, tampilkan chapter yang sesuai
+    // Jika ID ditemukan, tampilkan chapter yang sesuai
     currentChapterIndex = index;
     showChapter(currentChapterIndex);
   } else {
-    // Jika tidak ada path yang cocok, tampilkan chapter pertama
+    // Jika tidak ada ID di hash, tampilkan chapter pertama
     showChapter(0);
   }
 });
