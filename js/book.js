@@ -28,7 +28,7 @@ prevButton.addEventListener("click", () => {
   if (currentChapterIndex > 0) {
     currentChapterIndex--;
     showChapter(currentChapterIndex);
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 0); // Menggulir ke atas saat berpindah chapter
   }
 });
 
@@ -37,11 +37,9 @@ nextButton.addEventListener("click", () => {
   if (currentChapterIndex < chapters.length - 1) {
     currentChapterIndex++;
     showChapter(currentChapterIndex);
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 0); // Menggulir ke atas saat berpindah chapter
   }
 });
-
-// src.js
 
 // Fungsi pencarian
 const searchInput = document.getElementById("search-bar");
@@ -71,24 +69,24 @@ searchInput.addEventListener("keyup", (e) => {
   }
 });
 
+// Saat halaman dimuat
 document.addEventListener("DOMContentLoaded", () => {
-  // Ambil hash dari URL saat ini
   const hash = window.location.hash;
 
-  // Temukan chapter dengan ID yang sesuai
+  // Cari chapter dengan ID yang sesuai
   const index = chapters.findIndex((chapter) => `#${chapter.id}` === hash);
 
   if (index !== -1) {
-    // Jika ID ditemukan, tampilkan chapter yang sesuai
+    // Jika hash ditemukan, tampilkan chapter yang sesuai
     currentChapterIndex = index;
     showChapter(currentChapterIndex);
   } else {
-    // Jika tidak ada ID di hash, tampilkan chapter pertama
+    // Jika tidak ada hash, tampilkan chapter pertama
     showChapter(0);
   }
 });
 
-// Ketika halaman di-reload, tampilkan chapter pertama
+// Jika halaman di-reload tanpa hash, tampilkan chapter pertama
 document.addEventListener("DOMContentLoaded", () => {
   showChapter(0);
 });
