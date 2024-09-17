@@ -31,6 +31,21 @@ a {
   text-decoration: none;
 }
 
+/* SweetAlert2 styling */
+.swal2-popup {
+  font-size: 1.2em;
+}
+
+.swal2-title {
+  font-size: 1.5em;
+}
+
+.swal2-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .novel-author a {
   color: var(--primary-color);
 }
@@ -643,6 +658,12 @@ footer {
 
   #disqus_thread {
     margin: 10px 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .swal2-popup {
+    width: 90%;
   }
 }
 
