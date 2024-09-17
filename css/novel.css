@@ -39,6 +39,10 @@ a {
   color: var(--accent-color);
 }
 
+tbody td a:hover {
+  text-decoration: underline;
+}
+
 h2 {
   text-align: center;
 }
