@@ -25,6 +25,14 @@ body {
   cursor: url("../img/default.png"), auto;
 }
 
+a {
+  text-decoration: none;
+}
+
+.garis:hover {
+  text-decoration: underline;
+}
+
 nav {
   background-color: var(--primary-color);
   padding: 1rem;
@@ -454,6 +462,30 @@ audio {
 
 .popup.hide .popup-content {
   transform: scale(0); /* Zoom-out ke ukuran 0 */
+}
+
+.comments {
+  padding: 2rem 1rem;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin-top: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Centering Disqus container */
+#disqus_thread {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0; /* Add some margin for spacing */
+}
+
+/* Make iframe responsive */
+#disqus_thread iframe {
+  width: 100%;
+  max-width: 100%; /* Ensure it doesn't exceed container width */
+  height: auto; /* Maintain aspect ratio */
+  box-sizing: border-box;
 }
 
 @media (max-width: 768px) {

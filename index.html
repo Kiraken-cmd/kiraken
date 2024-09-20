@@ -27,7 +27,7 @@
         <li><a href="javascript:void(0);" data-id="home">Home</a></li>
         <li><a href="javascript:void(0);" data-id="new">Daftar Novel</a></li>
         <li><a href="javascript:void(0);" data-id="about">Tentang Kami</a></li>
-        <li><a href="javascript:void(0);" data-id="feedback">Feedback</a></li>
+        <li><a href="feedback/index.html">Feedback</a></li>
       </ul>
     </nav>
 
@@ -199,8 +199,11 @@
           <strong>Hubungi Kami</strong><br />
           Jika Anda memiliki pertanyaan, saran, request genre maupun novel, atau
           ingin memberikan umpan balik, jangan ragu untuk menghubungi kami
-          melalui halaman Feedback. Kami sangat menghargai masukan Anda dan
-          selalu berusaha untuk meningkatkan layanan kami.
+          melalui halaman
+          <strong
+            ><a href="feedback/index.html" class="garis">Feedback</a></strong
+          >. Kami sangat menghargai masukan Anda dan selalu berusaha untuk
+          meningkatkan layanan kami.
         </p>
         <br />
         <p>
@@ -213,26 +216,34 @@
       <!-- End Section About/Tentang Kami -->
 
       <!-- Section Feedback -->
-      <section id="feedback" class="feedback-section">
-        <h2>Feedback</h2>
-        <p>
-          Mohon untuk menulis email dengan benar agar kami dapat membalas
-          feedback anda. Berikan pendapat dan saran Anda di bawah ini:
-        </p>
-        <form
-          action="https://formspree.io/f/xnnavazo"
-          method="POST"
-          class="feedback-form"
+      <section id="comments" class="comments">
+        <h2>Comment</h2>
+        <div id="disqus_thread"></div>
+        <script>
+          /**
+           *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+           *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+          /*
+      var disqus_config = function () {
+      this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      };
+      */
+          (function () {
+            // DON'T EDIT BELOW THIS LINE
+            var d = document,
+              s = d.createElement("script");
+            s.src = "https://kirakennovel.disqus.com/embed.js";
+            s.setAttribute("data-timestamp", +new Date());
+            (d.head || d.body).appendChild(s);
+          })();
+        </script>
+        <noscript
+          >Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript"
+            >comments powered by Disqus.</a
+          ></noscript
         >
-          <input type="text" name="text" placeholder="Nama" required />
-          <input type="email" name="email" placeholder="Email" required />
-          <textarea
-            name="message"
-            placeholder="Pesan Anda...."
-            required
-          ></textarea>
-          <button type="submit">Kirim Pesan</button>
-        </form>
       </section>
       <!-- End Section Feedback -->
     </main>
