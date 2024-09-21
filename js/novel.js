@@ -222,6 +222,20 @@ document.addEventListener("DOMContentLoaded", () => {
   setupPagination();
 });
 
+// function alerts author
+document.getElementById("author-link").addEventListener("click", function (e) {
+  e.preventDefault(); // Mencegah aksi default dari href
+  Swal.fire({
+    title: "Oops!",
+    text: "Mohon Maaf, Sang author tidak ingin menampilkan informasi pribadi ataupun social media.",
+    icon: "error",
+    confirmButtonText: "Back",
+    customClass: {
+      container: "swal-container",
+    },
+  });
+});
+
 // Url Function
 // Mendapatkan path dari URL saat ini
 let currentPath = window.location.pathname;
